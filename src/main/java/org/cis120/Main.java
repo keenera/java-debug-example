@@ -31,7 +31,7 @@ public class Main {
         // sum the areas of the circles with a for loop
         double sum = 0.0;
         for (int i = 0; i < cList.length; i++) {
-            sum += cList[i].getArea();
+            sum = cList[1].getArea();
         }
 
         // print the sum of areas - should be 157.08 (50 * pi)
