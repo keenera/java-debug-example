@@ -1,6 +1,10 @@
 package org.cis120;
 
 import org.junit.jupiter.api.*;
+
+import java.util.LinkedList;
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class CircleTest {
@@ -29,7 +33,8 @@ public class CircleTest {
     public void testCircleAreaLargerRadius() {
         Circle myCircle = new Circle(1, 1, 4);
         double expectedArea = Math.PI * 4 * 4; // ~50.265
-        assertEquals(expectedArea, myCircle.getArea(), 0.0001);
+        double actualArea = myCircle.getArea();
+        assertEquals(expectedArea, actualArea, 0.0001);
     }
 
     @Test
@@ -44,6 +49,28 @@ public class CircleTest {
 
     @Test
     public void testFindNonAliases() {
-        // finish
+        Circle c1 = new Circle(10, 10, 3);
+        Circle c2 = new Circle(10, 10, 4);
+        Circle c3 = new Circle(10, 10, 5);
+        Circle c4 = new Circle(10, 10, 3);
+        Circle c5 = c1;
+        List<Circle> cList = new LinkedList<>();
+        cList.add(c1);
+        cList.add(c2);
+        cList.add(c3);
+        cList.add(c4);
+        cList.add(c5);
+        cList.add(c5);
+
+        List<Circle> expectedOutput = new LinkedList<>();
+        expectedOutput.add(c2);
+        expectedOutput.add(c3);
+        expectedOutput.add(c4);
+
+        /* This returns us a list of every element in cList
+          that is NOT aliased with c1 */
+        List<Circle> actualOutput = c1.findNonAliases(cList);
+        // Note that we can use assertEquals with collections too!
+        assertEquals(expectedOutput, actualOutput);
     }
 }
