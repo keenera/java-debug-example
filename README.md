@@ -4,9 +4,9 @@ If you don't know how to use the IntelliJ debugger, watch [this video](https://w
 
 Get started:
 
-- Download debug_example.zip in the recitation materials folder and open the project in IntelliJ.
+* Download debug_example.zip in the recitation materials folder and open the project in IntelliJ.
 
-- Open CircleTest.java, which has the two debugging examples, and run the file to see which test cases are currently failing. You must do Example #1 before doing Example #2. The only other file needed for both examples is Circle.java.
+* Open CircleTest.java, which has the two debugging examples, and run the file to see which test cases are currently failing. You must do Example #1 before doing Example #2. The only other file needed for both examples is Circle.java.
 
 ## Example #1
 ### *Failing test case: testCircleAreaLargerRadius()*
