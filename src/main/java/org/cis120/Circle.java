@@ -29,9 +29,9 @@ public class Circle extends DisplaceableImpl implements Shape {
         return sum;
     }
 
-    public List<Circle> findNonAliases(List<Circle> circles) {
+    public List<Circle> findNonAliases(List<Circle> cList) {
         List<Circle> output = new LinkedList<>();
-        for (Circle c : circles) {
+        for (Circle c : output) {
             if (c != this) {
                 output.add(c);
             }

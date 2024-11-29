@@ -61,16 +61,18 @@ public class CircleTest {
         cList.add(c4);
         cList.add(c5);
         cList.add(c5);
+        cList.add(c4);
 
         List<Circle> expectedOutput = new LinkedList<>();
         expectedOutput.add(c2);
         expectedOutput.add(c3);
         expectedOutput.add(c4);
+        expectedOutput.add(c4);
 
         /* This returns us a list of every element in cList
           that is NOT aliased with c1 */
         List<Circle> actualOutput = c1.findNonAliases(cList);
-        // Note that we can use assertEquals with collections too!
+        // Notice that we can use assertEquals with collections too!
         assertEquals(expectedOutput, actualOutput);
     }
 }
