@@ -56,3 +56,27 @@ In this example we calculate the sum of the areas of an array of circles. This i
 7. Use the "Step Over" button to run through the loop. You will see that the index variable changes, and the debugger returns to the top of the loop on each iteration. As you walk through the iterations, notice that `sum` is not being updated correctly — we are using 1 as our index on each iteration of the instead of our index variable `i`, and setting `sum` to the area of the current circle instead of adding to the existing sum.
 
 8. Fix the issues and run `CircleTest.java`.
+
+## Example #3
+### *Failing test case: `testFindNonAliases()`*
+In this example, we return the elements of a `List<Circle>` that are NOT reference-equal to the circle we call the method on. This example shows you what Collections look like in the debugger, and how to spot when your code doesn’t enter loops as expected.
+
+1. An overview of what the code does:
+    * Our test case `testFindNonAliases()` creates 4 new circles, `c1`, `c2`, `c3`, `c4`, aliases `c1` with another identifier `c5`, creates a list cList that stores `c1`, `c2`, `c3`, `c4`, `c5`, `c5`, `c4` in that order, and passes `cList` into `c1.findNonAliases()`
+    * `findNonAliases()` takes in a list of circles, iterates over it, and returns a list of the circles NOT reference-equal to the circle we called the method on. In other words, because we called `findNonAliases()` on `c1`, we should see an output list that looks like `c2`, `c3`, `c4`, `c4`.
+
+2. Run `CircleTest.java` to see the output for the test case `testFindNonAliases()`.
+
+3. Place a breakpoint on line 74 of `CircleTest.java`.
+
+4. Start debugger mode.
+
+5. Take a look at the debugger pane – variables show up here, including `cList`, which shows up as a dropdown that can be expanded to see the elements of the list.
+     * The individual elements of `cList`, which are `Circle` objects, can also be expanded to see their fields.
+
+7. Use the "Step Into" button to go to `Circle.java`'s `findNonAliases()` method.
+
+8. Click the "Step Over" button once to see `output` get initialized to an empty `LinkedList`.
+9. Use the "Step Over" button to run through the loop. You will see that instead of entering the body of the loop, the debugger immediately jumps to line 39 and `output` is still empty. Notice that this happened because we accidentally iterated over `output` (which was empty) and not our parameter `cList`. To fix this, we can replace output with `cList` in the for-each loop header on line 34.
+
+10. Fix the issue and run `CircleTest.java`.
