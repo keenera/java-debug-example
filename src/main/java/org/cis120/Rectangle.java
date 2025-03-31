@@ -1,7 +1,5 @@
 package org.cis120;
 
-import org.w3c.dom.css.Rect;
-
 public class Rectangle extends DisplaceableImpl implements Shape {
     private double w, h;
 
